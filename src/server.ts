@@ -10,7 +10,10 @@ const main = async () => {
     emitSchemaFile: path.resolve(__dirname, 'schema.gql'),
   });
 
-  const server = new ApolloServer({ schema });
+  const server = new ApolloServer({
+    schema,
+    context: ({ req, res }) => ({ req, res }),
+  });
 
   const { url } = await server.listen();
 

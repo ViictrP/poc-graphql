@@ -3,15 +3,22 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+type LoginResponse {
+  accessToken: String!
+}
+
 type Mutation {
-  createUser(name: String!): User!
+  createUser(name: String!, password: String!, username: String!): User!
+  login(password: String!, username: String!): LoginResponse!
 }
 
 type Query {
+  getProfile: User!
   users: [User!]!
 }
 
 type User {
   id: ID!
   name: String!
+  username: String!
 }

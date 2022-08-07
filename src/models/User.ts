@@ -6,5 +6,10 @@ export default class User {
   id!: string;
 
   @Field((_type) => String)
+  username!: string;
+
+  @Field((_type) => String)
   name!: string;
+
+  password!: string;
 }
